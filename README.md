@@ -2,7 +2,7 @@
 
 ## Overview
 
-simil.art is an application for Content-Based Image Retrieval (CBIR) based on deep features extracted from neural networks, specifically ResNet18 and fine-tuned ResNet50 on an artistic dataset. The purpose of this project is to work with an artistic dataset, retrieve similar images, and refine the results based on both the style of the query image (using fine-tuned models) and the color (using color histogram correlation).
+**simil.art** is an application for Content-Based Image Retrieval (CBIR) based on deep features extracted from neural networks, specifically ResNet18 and fine-tuned ResNet50 on an artistic dataset. The purpose of this project is to work with an artistic dataset, retrieve similar images, and refine the results based on both the style of the query image (using fine-tuned models) and the color (using color histogram correlation).
 
 ## Features
 
