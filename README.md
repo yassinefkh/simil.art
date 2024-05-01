@@ -12,8 +12,8 @@ simil.art is an application for Content-Based Image Retrieval (CBIR) based on de
   ![Description of the visualization of the featurs maps](similart_app/core_interface/static/images/readmeimg2.png)
 - Refinement of results based on color histogram correlation
   ![Description of the refinement based on the color](similart_app/core_interface/static/images/readmeimg3.png)
-  - Refinement of results based on the style
-    ![Description of the style prediction](similart_app/core_interface/static/images/readmeimg4.png)
+- Refinement of results based on the style
+  ![Description of the style prediction](similart_app/core_interface/static/images/readmeimg4.png)
 
 ## Getting Started
 
