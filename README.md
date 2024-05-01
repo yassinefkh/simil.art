@@ -11,6 +11,8 @@ simil.art is an application for Content-Based Image Retrieval (CBIR) based on de
 - Fine-tuned model using ResNet50
 - Refinement of results based on image style and color histogram correlation
 
+![Description of the CBIR feature](similart_app/core_interface/static/images/readmeimg1.png)
+
 ## Getting Started
 
 To get started with the simil.art project, follow these steps:
