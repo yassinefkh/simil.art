@@ -48,3 +48,8 @@ Upload an image to search for similar images.
 ## Disclaimer
 
 This project uses data from [WikiArt](https://www.wikiart.org/) for educational purposes only and is not intended for commercial use.
+
+## Authors
+
+- **Project Author:** FEKIH HASSEN Yassine, CALMANOVIC-PLESCOFF Auguste, HIBAOUI Imane, MARTIN--SAVORNIN Alain
+- **Project Supervisor:** Pr. KURTZ Camille
