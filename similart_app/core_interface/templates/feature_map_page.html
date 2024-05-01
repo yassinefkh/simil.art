@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Feature Maps | simil.art{% endblock %}
+{% block content %}
+
+<body>
+    <div class="gradient-bg py-24 sm:py-32">
+        <div class="container mx-auto text-center px-6">
+            <h1 class="text-5xl sm:text-6xl font-bold mb-4">Feature Maps</h1>
+            <h2 class="text-2xl sm:text-3xl mb-8">Visual representations of learned features in the Convolutional Neural Network</h2>
+        </div>
+        
+    </div>
+    <div id="feature-map" class="container mx-auto text-center">
+        {{ feature_map_plot|safe }}
+    </div>
+</body>
+</html>
+{% endblock %}

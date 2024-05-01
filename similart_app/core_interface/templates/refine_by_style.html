@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Recherche | simil.art{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'style/refine_results.css' %}">
+
+
+<div class="container mx-auto px-4 py-16">
+    <div class="text-center">
+        <h2 class="text-4xl lg:text-5xl font-extrabold text-gray-800 title">Filtered Results</h2>
+        <div class="demo-description mx-auto max-w-4xl">
+            <p>Your previously found similar images have been re-filtered by the art's style of you image</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto px-4 py-16">
+    <div class="text-center">
+        <h3 class="text-3xl font-semibold text-gray-900 mb-4">Artistic style of your image : <span class="text-indigo-600">{{ upload_style }}</span></h3>
+    </div>
+</div>
+
+<div class="container mx-auto px-4 py-16 text-center">
+    <p class="text-lg md:text-2xl lg:text-3xl text-black-500 font-bold">Number of images found: <span class="text-green-500">{{ filtered_images_count }}</span> out of <span class="text-red-500">{{ total_images_count }}</span> initially found similar images.</p>
+</div>
+
+
+
+<div id="similar-images" class="container mx-auto px-4 py-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        {% for image_path in similar_image_style %}
+            <div class="rounded-lg overflow-hidden shadow-md relative transition-transform duration-300 transform hover:scale-110">
+                <img src="{{ image_path }}" alt="Image similaire" class="w-full h-full object-cover cursor-pointer"
+                     onclick="showImageModal('{{ image_path }}')">
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+<div id="histogram-container">
+    <!-- Conteneur pour les histogrammes de couleur -->
+</div>
+
+<div id="imageModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-75" onclick="hideImageModal()">
+    <div class="bg-white p-1 rounded-lg shadow-lg" onclick="preventPropagation(event)">
+        <span class="absolute top-0 right-0 p-2 cursor-pointer" onclick="hideImageModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </span>
+        <img id="modalImage" src="" alt="Image agrandie" class="w-full">
+    </div>
+</div>
+
+
+</div>
+
+<script>
+
+
+
+
+
+  // Récupérer les histogrammes de couleur de la session
+  var histograms = JSON.parse('{{ histograms|escapejs }}');
+
+// Afficher les histogrammes de couleur à l'aide de Plotly
+for (var i = 0; i < histograms.length; i++) {
+    var histData = histograms[i];
+    var data = [{
+        x: histData,
+        type: 'histogram'
+    }];
+    var layout = {
+        title: 'Histogramme de couleur ' + (i+1)
+    };
+    Plotly.newPlot('histogram-container', data, layout);
+}
+
+
+
+
+
+
+
+      function showImageModal(imagePath) {
+        var modal = document.getElementById('imageModal');
+        var modalImage = document.getElementById('modalImage');
+        modalImage.src = imagePath;
+        modal.classList.remove('hidden');
+    }
+
+  
+    function hideImageModal() {
+        var modal = document.getElementById('imageModal');
+        modal.classList.add('hidden');
+    }
+
+    document.querySelector('#imageModal > div').addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+</script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

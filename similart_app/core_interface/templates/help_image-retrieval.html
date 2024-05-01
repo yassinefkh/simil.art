@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Color Refinement | simil.art{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'color_refinement.css' %}">
+<style>
+:root {
+
+    --primary-color: #8910b9;
+
+    --secondary-color: #f0f0f0;
+
+    --bg-color: #ffffff;
+
+    --text-color: #333;
+
+    --nav-bg-color: #ffffff;
+
+    --footer-bg-color: #ffffff;
+
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+
+}
+
+main {
+    flex: 1; 
+ 
+}
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<div class="gradient-bg py-24 sm:py-32">
+  <div class="container mx-auto text-center px-6">
+    <h1 class="text-5xl sm:text-6xl font-bold mb-4">Image Retrieval</h1>
+    <h2 class="text-2xl sm:text-3xl mb-8">in writing...</h2>
+  </div>
+</div>
+<hr style="width: 50%; height: 4x; margin: auto;">
+
+
+
+ 
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+.gradient-bg {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(50,0,92,1) 35%, rgba(19,12,96,1) 100%);
+  }
+  .feature-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto; 
+    padding: 2rem; 
+    gap: 2rem; 
+  }
+
+  .feature-image-wrapper {
+    flex-basis: 40%; 
+    max-height: 100%; 
+    overflow: hidden;
+  }
+
+  .feature-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .feature-description {
+    flex-basis: 60%; 
+    padding-left: 2rem; 
+  }
+
+  .gradient-bg h1,
+  .gradient-bg h2,
+  .gradient-bg a {
+    color: white;
+  }
+  @media (max-width: 768px) {
+    .feature-section {
+      flex-direction: column;
+    }
+
+    .feature-description {
+      padding-left: 0;
+      padding-top: 1rem;
+    }}

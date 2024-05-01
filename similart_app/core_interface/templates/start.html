@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simil.art</title>
+
+   
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background: linear-gradient(to left top, #020024, #32005c, #130c60); 
+        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .content {
+            text-align: center;
+            color: white;
+        }
+
+        .btn-enter {
+            background-color: white;
+            color: #391ac5;
+            padding: 10px 40px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 5px; 
+        }
+
+        .btn-enter:hover {
+            background-color: #F1E5FF; 
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 class="text-8xl font-bold mb-6">simil.art</h1>
+        <h1 class="text-lg font-bold mb-6">Université Paris-Cité</h1>
+        <a href="{% url 'home' %}" class="btn-enter">Enter</a>
+    </div>
+</body>
+</html>

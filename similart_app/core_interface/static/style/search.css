@@ -1,0 +1,367 @@
+
+    .dark-mode {
+        --text-color: #ffffff;
+        --demo-bg-color: #2e2751;
+    }
+
+    .dark-mode .title {
+        color: #ffffff;
+    }
+
+    body.dark-mode {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+    }
+
+    .dark-mode .demo-description {
+        background-color: #433d47;
+        color: var(--text-color);
+    }
+
+    .dark-mode nav,
+    .dark-mode footer {
+        background-color: var(--nav-bg-color);
+    }
+
+    :root {
+        --logo-background-url: url("{% static 'UniversiteParis_monogramme_noir_RVB.jpg' %}");
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        width: 50%;
+        height: 100%;
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: 0.03;
+        z-index: -1;
+    }
+
+    .container {
+    padding: 4rem 2rem;
+}
+
+    .title {
+        color: #32005c;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        display: inline-block;
+        position: relative;
+    }
+
+    .title::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 4px;
+        background: #332940;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+    }
+
+    .demo-description {
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        padding: 20px;
+        font-size: 1.25rem;
+        font-weight: normal;
+        color: #130c60;
+    }
+
+  
+
+
+
+    .text-green-700 {
+        background-color: #48bb78;
+        color: white;
+        border: 2px solid #38a169;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .text-red-700 {
+        background-color: #f56565;
+        color: white;
+        border: 2px solid #e53e3e;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .feature-map {
+        width: 100%;
+        height: auto;
+    }
+
+    /* spinner */
+
+    .lds-ellipsis,
+    .lds-ellipsis div {
+        box-sizing: border-box;
+    }
+
+    .lds-ellipsis {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
+
+    .lds-ellipsis div {
+        position: absolute;
+        top: 33.33333px;
+        width: 13.33333px;
+        height: 13.33333px;
+        border-radius: 50%;
+        background: currentColor;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+
+    .lds-ellipsis div:nth-child(1) {
+        left: 8px;
+        animation: lds-ellipsis1 0.6s infinite;
+    }
+
+    .lds-ellipsis div:nth-child(2) {
+        left: 8px;
+        animation: lds-ellipsis2 0.6s infinite;
+    }
+
+    .lds-ellipsis div:nth-child(3) {
+        left: 32px;
+        animation: lds-ellipsis2 0.6s infinite;
+    }
+
+    .lds-ellipsis div:nth-child(4) {
+        left: 56px;
+        animation: lds-ellipsis3 0.6s infinite;
+    }
+
+    @keyframes lds-ellipsis1 {
+        0% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes lds-ellipsis3 {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(0);
+        }
+    }
+
+    @keyframes lds-ellipsis2 {
+        0% {
+            transform: translate(0, 0);
+        }
+        100% {
+            transform: translate(24px, 0);
+        }
+    }
+
+    .form-submit {
+        padding: 10px 20px;
+        background-color: #8e44ad;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-submit:hover {
+        background-color: #7c3296;
+    }
+
+    .form-container {
+        background-color: #f9fafb;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .dark-mode .form-container {
+        background-color: #433d47;
+        box-shadow: 0 8px 7px rgba(114, 111, 111, 0.1);
+    }
+    .dark-mode .form-label{
+        color: #ffffff;
+    }
+    .form-label {
+        font-size: 0.875rem;
+        font-weight: bold;
+        color: #4a5568;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #cbd5e0;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+
+    .form-file-label {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 10px;
+        cursor: pointer;
+        padding: 10px;
+        background-color: #edf2f7;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: bold;
+        color: #4a5568;
+        transition: background-color 0.3s ease;
+    }
+
+    .form-file-label:hover {
+        background-color: #d1d5db;
+    }
+
+    .form-file-label::before {
+        content: "";
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-right: 0.5em;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'%3E%3C/path%3E%3Cpolyline points='7 10 12 15 17 10'%3E%3C/polyline%3E%3Cline x1='12' y1='15' x2='12' y2='3'%3E%3C/line%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
+        vertical-align: middle;
+    }
+
+    .form-radio-label,
+    .form-checkbox-label {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .form-radio, .form-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #f9fafb;
+    border: 1px solid #cbd5e0;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    margin-right: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.form-radio:checked, .form-checkbox:checked {
+    background-color: #8e44ad;
+    border-color: #8e44ad;
+}
+
+    .form-file-input {
+        display: none;
+    }
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+    .fade-out {
+        animation: fadeOut 1s ease forwards;
+    }
+    .refine-button {
+        background: linear-gradient(to right, #f56565, #f7b731, #1fe1f2, #20c997, #00b4db);
+        background-size: 200% 200%;
+        animation: gradient 3s ease infinite;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .refine-button:hover {
+        transform: scale(1.02);
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    .download-button-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999; 
+    }
+
+    .download-button {
+        padding: 10px 20px;
+        background-color: #4a5568; 
+        color: white; 
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .download-button:hover {
+        background-color: #718096;
+    }
+    .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+    gap: 1rem;
+    grid-auto-rows: minmax(100px, auto); 
+}
+
+.grid-item {
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.grid-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+

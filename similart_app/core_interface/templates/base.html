@@ -1,0 +1,282 @@
+
+ <!-- TEMPLATE DU SITE, comme ça pas besoin de redefinir à chaque page, le contenu de ce template (soit la navbar, la footbar, le background etc...) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
+    <title>{% block title %}simil.art{% endblock %}</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+
+        :root {
+
+            --primary-color: #8910b9;
+
+            --secondary-color: #f0f0f0;
+
+            --bg-color: #f0f0f0;
+
+            --text-color: #333;
+
+            --nav-bg-color: #ffffff;
+
+            --footer-bg-color: #ffffff;
+
+        }
+
+        .dark-mode {
+
+            --primary-color: #8910b9;
+
+            --secondary-color: #1F1B24;
+
+            --bg-color: #1F1B24;
+
+            --text-color: #f0f0f0;
+
+            --nav-bg-color: #121212;
+
+            --footer-bg-color: #222222;
+
+        }
+
+        body {
+
+            display: flex;
+
+            flex-direction: column;
+
+            background-color: var(--bg-color);
+
+            color: var(--text-color);
+
+            transition: background-color 0.3s ease, color 0.3s ease;
+
+        }
+
+        .navbar {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 1rem 2rem;
+
+            background-color: var(--nav-bg-color);
+
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+            transition: background-color 0.3s ease;
+
+        }
+
+        .nav-brand {
+
+            font-weight: bold;
+
+            font-size: 1.5rem;
+
+            color: var(--primary-color);
+
+            text-decoration: none;
+
+            transition: color 0.3s ease;
+
+        }
+
+        .nav-brand:hover,
+
+        .nav-link:hover {
+
+            color: var(--primary-color);
+
+        }
+
+        .nav-menu {
+
+            display: flex;
+
+            gap: 1rem;
+
+            margin-left: 2rem;
+
+        }
+
+        .nav-link {
+
+            text-decoration: none;
+
+            color: var(--text-color);
+
+            transition: color 0.3s ease;
+
+        }
+
+        .nav-link:hover {
+
+            color: var(--primary-color);
+
+        }
+
+        .nav-icon {
+
+            cursor: pointer;
+
+            font-size: 1.25rem;
+
+            transition: color 0.3s ease;
+
+        }
+
+        @media (max-width: 768px) {
+
+            .nav-menu {
+
+                display: none;
+
+            }
+
+        }
+
+        nav,
+
+        footer {
+
+            background-color: var(--nav-bg-color);
+
+            color: var(--text-color);
+
+            transition: background-color 0.3s ease, color 0.3s ease;
+
+        }
+
+        nav a,
+
+        footer a {
+
+            color: var(--text-color);
+
+            text-decoration: none;
+
+        }
+
+        .footer-content {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+        main {
+
+            flex: 1;
+
+        }
+        .scroll-top-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  text-decoration: none;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-top-button:hover {
+  opacity: 1;
+}
+
+.scroll-top-button i {
+  font-size: 24px;
+}
+
+    </style>
+
+</head>
+<body class="bg-black-100">
+
+    <nav class="navbar">
+        <a href="{% url 'start' %}" class="nav-brand">simil.art</a>
+        <div class="nav-menu">
+            <a href="{% url 'home' %}" class="nav-link">Home</a>
+            <a href="{% url 'search' %}" class="nav-link">Search</a>
+            <a href="{% url 'equipe' %}" class="nav-link mr-4">Team</a>
+
+        </div>
+        <div class="relative">
+    <button class="flex items-center justify-between w-full text-left nav-link focus:outline-none" id="dropdownMenuButton" aria-expanded="false" aria-haspopup="true">
+        More
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    </button>
+    <div class="absolute hidden z-10 w-48 mt-2 origin-top-right right-0 bg-white rounded shadow-lg py-1" aria-labelledby="dropdownMenuButton">
+        <a href="{% url 'help_image_retrieval' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Image Retrieval</a>
+        <a href="{% url 'help_histogram' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Color refinement</a>
+    </div>
+</div>
+
+    
+        <button onclick="toggleDarkMode()" class="ml-auto focus:outline-none">
+            <i class="fas fa-moon nav-icon"></i>
+        </button>
+    </nav>
+    
+    <main class="w-screen">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <a href="#" id="scroll-top-button" class="scroll-top-button">
+        <i class="fas fa-arrow-up"></i>
+      </a>
+      
+    <footer class="bg-white p-4 {% if request.session.dark_mode == 'enabled' %}text-white{% endif %}">
+        <div class="container mx-auto footer-content">
+            © 2024 L3H1 Project. All rights reserved.
+        </div>
+    </footer>
+</body>
+
+
+
+<script>
+document.querySelector('#dropdownMenuButton').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.querySelector('.absolute').classList.toggle('hidden');
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const scrollTopButton = document.getElementById('scroll-top-button');
+  
+    scrollTopButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+  </script>
+</html>
