@@ -1,4 +1,4 @@
-# simil.art
+# simil.art | _Université Paris Cité_
 
 ## Overview
 
