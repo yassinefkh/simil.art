@@ -17,8 +17,9 @@ import plotly.offline as opy
 from cnn_model.visualization import plot_tsne, visualize_feature_maps
 from cnn_model.similarity import similarity, show_similar_pics
 from image_analysis.color_analysis import find_similar_images
-from indexing.faiss_indexing import load_faiss_index, show_similar_pics_faiss
 from image_analysis.style_analysis import find_similar_style_images
+from indexing.faiss_indexing import load_faiss_index, show_similar_pics_faiss
+
 from core_interface.utils import url_to_local_path
 
 """
@@ -243,7 +244,7 @@ def upload_image_faiss(request):
                 print("Dimensionality of FAISS index:", index_dimensionality)
 
                 # Perform image search using the FAISS index
-                similar_images_paths, similarity_time = show_similar_pics_faiss(request, uploaded_image, model_name, 300, faiss_index_path)
+                similar_images_paths, similarity_time = show_similar_pics_faiss(request, uploaded_image, model_name, 100, faiss_index_path)
 
                 # Store relevant information in the session
                 request.session['similar_images_paths'] = similar_images_paths
@@ -257,7 +258,7 @@ def upload_image_faiss(request):
 
                 # Check if the user requested t-SNE plot visualization
                 if 'show_tsne' in request.POST:
-                    tsne_plot = plot_tsne(uploaded_image, model_name, 35)
+                    tsne_plot = plot_tsne(uploaded_image, model_name, 50)
                     tsne_plot_html = plotly.offline.plot(tsne_plot, output_type='div')
 
                 # Check if the user requested feature map visualization
@@ -395,56 +396,94 @@ def refine_results(request):
         return HttpResponseBadRequest("This view only supports POST requests.")
     
 
-
-
-
 def style_analysis(request):
+
     """
+
     View function to refine search results based on the syle of art. 
+
     
+
     Parameters:
+
         request (HttpRequest): The HTTP request object.
+
         
+
     Returns:
+
         HttpResponse: Rendered HTML response with refined search results.
+
     """
+
     if request.method == 'POST':
+
         try:
+
             # Check if necessary session data is available
+
             if 'similar_images_paths' in request.session and 'uploaded_image_name' in request.session and 'selected_layer' in request.session:
+
                 # Retrieve session data
+
                 similar_images_paths = request.session.get('similar_images_paths')
+
                 uploaded_image_name = request.session.get('uploaded_image_name')
 
                 # Get the path of the uploaded image
+
                 uploaded_image_path = os.path.join(settings.MEDIA_ROOT, 'temp/', uploaded_image_name)
+
                 # Find similar images based on the uploaded image
+
                 results, upload_style = find_similar_style_images(uploaded_image_path, similar_images_paths)
 
                 # Extract the color information from the results
+
                 similar_image_style = results
+
                 # Prepare context data to pass to the template
+
                 context = {
+
                     'upload_style': upload_style,
+
                     'similar_image_style': similar_image_style,
+
                     'total_images_count': len(similar_images_paths),
+
                     'filtered_images_count': len(similar_image_style),
+
                 }
+
                
+
                 # Render the refine_results.html template with the context data
+
                 return render(request, 'refine_by_style.html', context)
+
             else:
+
                 # If necessary session data is not available, display an error message
+
                 messages.error(request, "The necessary information is not available in the session.")
+
                 return render(request, 'refine_by_style.html')
+
         except Exception as e:
+
             # If an exception occurs during processing, display an error message
+
             messages.error(request, "An error occurred while processing your request. Please try again later.")
+
             return render(request, 'refine_by_style.html')
+
     else:
+
         # If the request method is not POST, return a bad request response
+
         return HttpResponseBadRequest("This view only supports POST requests.")
-    
+
 
 
 def download_similar_images(request):
@@ -480,3 +519,12 @@ def download_similar_images(request):
     
     return response
 
+def terms_of_use(request):
+    """
+    show the terms of use page
+    Parameters:
+        request (HttpRequest): The HTTP request object.
+    Returns:
+        HttpResponse: The rendering of the 'terms_of_use.html' template.
+    """
+    return render(request, 'terms_of_use.html')

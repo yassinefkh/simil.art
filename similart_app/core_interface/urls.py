@@ -21,8 +21,7 @@ urlpatterns = [
     path('download/similar_images/', views.download_similar_images, name='download_similar_images'),  # Route to the 'download_similar_images' view, accessed at 'download/similar_images/'
     path('feature_maps/', views.show_feature_maps, name='feature_maps'),  # Route to the 'show_feature_maps' view, accessed at '/feature_maps/'
     path('style_analysis/', views.style_analysis, name='style_analysis'),  # Route to the 'style_analysis' view, accessed at '/style_analysis/'
-    
-
+    path('terms_of_use/', views.terms_of_use, name='terms_of_use'),  # Route to the 'terms_of_use' view, accessed at '/terms_of_use/
      
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

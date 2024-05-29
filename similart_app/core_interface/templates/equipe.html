@@ -1,26 +1,24 @@
 {% extends "base.html" %}
+{% block title %}Recherche | simil.art{% endblock %}
 {% load static %}
-{% block title %}Equipe | simil.art{% endblock %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'style/equipe.css' %}">
 
 <style>
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; 
 
-}
+    }
 
-main {
-    flex: 1; 
- 
-}
-
+    main {
+        flex: 1; 
+    
+    }
 
    :root {
-        --logo-background-url: url("{% static 'UniversiteParis_monogramme_noir_RVB.jpg' %}");
+        --logo-background-url: url("{% static 'images/UniversiteParis_monogramme_noir_RVB.jpg' %}");
     }
 
     body::before {
@@ -62,9 +60,6 @@ main {
         bottom: -6px;
     }
 
-
-
-
     .name-title {
         font-size: 1.25rem; 
         font-weight: bold; 
@@ -88,7 +83,6 @@ main {
     }
 
     p {
-
         font-weight: bold;
     }
 

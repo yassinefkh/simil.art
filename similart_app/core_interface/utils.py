@@ -1,6 +1,6 @@
 import os
 from urllib.parse import urlparse
-
+from django.conf import settings
 
 def url_to_local_path(url, media_root):
     """

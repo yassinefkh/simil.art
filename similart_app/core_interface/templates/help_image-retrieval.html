@@ -6,32 +6,26 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'color_refinement.css' %}">
 <style>
-:root {
 
-    --primary-color: #8910b9;
+  :root {
+      --primary-color: #8910b9;
+      --secondary-color: #f0f0f0;
+      --bg-color: #ffffff;
+      --text-color: #333;
+      --nav-bg-color: #ffffff;
+      --footer-bg-color: #ffffff;
+  }
 
-    --secondary-color: #f0f0f0;
+  body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; 
+  }
 
-    --bg-color: #ffffff;
+  main {
+      flex: 1; 
+  }
 
-    --text-color: #333;
-
-    --nav-bg-color: #ffffff;
-
-    --footer-bg-color: #ffffff;
-
-}
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
-
-}
-
-main {
-    flex: 1; 
- 
-}
 </style>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script type="text/javascript" id="MathJax-script" async
@@ -40,14 +34,26 @@ main {
 <div class="gradient-bg py-24 sm:py-32">
   <div class="container mx-auto text-center px-6">
     <h1 class="text-5xl sm:text-6xl font-bold mb-4">Image Retrieval</h1>
-    <h2 class="text-2xl sm:text-3xl mb-8">in writing...</h2>
+    <h2 class="text-2xl sm:text-3xl mb-8"></h2>
   </div>
 </div>
 <hr style="width: 50%; height: 4x; margin: auto;">
 
 
 
- 
+<div class="container mx-auto px-6 py-12">
+  <div class="feature-section mb-12">
+      <h2 class="font-semibold text-2xl md:text-3xl mb-4 text-center"> Why a CNN?</h2>
+      <p class="text-gray-700 text-left mx-auto w-3/4">Today we have large databases on subjects as diverse as the economy, transport, medicine or, as in the case of our project, art. The size of these databases makes them rich, but the larger the database, the less feasible it is to analyse it using traditional tools. So we had to invent a new technology adapted to the size of these databases: Convolutional Neural Networks (CNN).      </p>
+      <p class="text-gray-700 text-left mx-auto w-3/4"><br>In these large databases, we don't want to find identical elements, but similar ones. This small difference is the reason for the existence of cnn. Instead of looking for identical items, i.e. having an input item and trying to find it in the database, the CNN will take the input item, perform an abstraction of some kind to extract the essential concepts and then search for these concepts in the database.      </p>
+      <p class="text-gray-700 text-left mx-auto w-3/4"><br>Extracting elements means finding them, which means going through the input data. To do this, we're going to use a local operation technique called convolution. To put it simply, we choose a matrix with predefined values, which we use to perform linear operations (simply sums and products) on each part of our input data, in this case on each pixel of the image.      </p>
+      <p class="text-gray-700 text-left mx-auto w-3/4"><br>So we've gone from an image (i.e. a matrix containing visual information about colour, brightness and so on) to a matrix containing feature information. As we are representing these features in spatial form, we can talk about a features map.      </p>
+      <p class="text-gray-700 text-left mx-auto w-3/4"><br>However, these features are too numerous and require too much computation. So we're going to try and reduce the size of this features matrix. To do this, we can once again pass a filter in matrix form over each pixel in the image and choose the maximum feature in this matrix. This is known as max pooling.      </p>
+      <p class="text-gray-700 text-left mx-auto w-3/4"><br>All these features are extracted so that they can be compared and found in other images. To do this, we need a similarity index, i.e. we will see whether areas of the image are very close, moderately close or not at all close to certain features. And we're going to store these observations. The observation is the neural network layer, which finds a level of similarity (feature map) and stores this information by updating the weights of the network.      </p>
+      <p class="text-gray-700 text-left mx-auto w-3/4"><br>Multiplying the number of layers makes it possible to learn more, but once a certain number of layers has been reached, the network loses its efficiency - this is known as network degradation. However, some researchers wanted to increase the number of possible layers of neurons by modifying the passage from one layer to another. Instead of moving logically from one layer to another by passing the output of the previous layer as input to the next layer, as is generally done for neural networks, these researchers came up with the idea of allowing layers of the neural network to be skipped. Why? Because this allows the output of certain layers to be both the normal output and the identity function. And then, by a simple subtraction, we obtain the residual function (the difference between what we want to obtain and what is obtained), which is easier to learn than the original learning function. This is called a Residual Neural Network, better known as ResNet, invented by Microsoft in 2015, and which we are using in our project.      </p>
+
+    </div>
+
 
 </div>
 

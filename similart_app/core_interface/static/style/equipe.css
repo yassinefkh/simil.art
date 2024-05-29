@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+
+}
+
+main {
+    flex: 1; 
+ 
+}
+
+
+   :root {
+        --logo-background-url: url("{% static 'UniversiteParis_monogramme_noir_RVB.jpg' %}");
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        width: 50%; 
+        height: 100%; 
+        background-image: var(--logo-background-url); 
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: 0.03; 
+        z-index: -1;
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+    .section-title {
+        color: #32005c; 
+        font-size: 2rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+        display: inline-block;
+        position: relative;
+    }
+    
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 4px;
+        background: #332940;
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+    }
+
+
+
+
+    .name-title {
+        font-size: 1.25rem; 
+        font-weight: bold; 
+        color: #130c60; 
+    }
+
+    .title {
+        display: inline-block;
+        position: relative;
+    }
+    
+    .title::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 6px;
+        background: linear-gradient(to left top, #020024, #32005c, #130c60);
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+    }
+
+    p {
+
+        font-weight: bold;
+    }
